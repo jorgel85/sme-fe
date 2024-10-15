@@ -196,10 +196,10 @@ function Navbar() {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                <Button sx={{ mx: 1, color: "#353535", display: "block" }}>
+                <Button sx={{ color: "#353535", display: "block" }}>
                   Log in
                 </Button>
-                <Button sx={{ mx: 1, color: "#353535", display: "block" }}>
+                <Button sx={{ mx: 1, color: "white", display: "block", backgroundColor: "#143D5D", borderRadius: 20 }}>
                   Register
                 </Button>
                 <Button
