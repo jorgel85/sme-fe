@@ -15,17 +15,17 @@ const LandingContent = () => {
         width: "100%",
         margin: "auto",
         backgroundColor: "#F2F1E7",
-        pt: { xs: "70px", lg: 0 },
-        height: { lg: "100vh" },
+        pt: { xs: "70px", xl: 0 },
+        height: { xl: "100vh" },
       }}
     >
       <Container maxWidth="xl" sx={{ height: "100%" }}>
         <Grid container height="100%">
           <Grid
             size={{ sm: 7, md: 6 }}
-            sx={{ display: "flex", alignItems: { xs: "center", lg: "end" } }}
+            sx={{ display: "flex", alignItems: { xs: "center" } }}
           >
-            <Box sx={{ py: { lg: 10, xl: 3 } }}>
+            <Box sx={{ pt: { xl: 10 } }}>
               <Typography
                 component="p"
                 sx={{
@@ -161,10 +161,10 @@ const LandingContent = () => {
             sx={{
               display: "flex",
               justifyContent: { xs: "center", sm: "flex-end" },
-              alignItems: { xs: "center", xl: "end" },
+              alignItems: { xs: "center" },
             }}
           >
-            <Box sx={{ width: { lg: "90%" }, pt: { lg: 10, xl: 0 } }}>
+            <Box sx={{ width: { lg: "90%" }, pt: { xl: 10 } }}>
               <img alt="Hero" src={heroImage} width="100%" />
             </Box>
           </Grid>
