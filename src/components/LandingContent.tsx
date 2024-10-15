@@ -511,7 +511,7 @@ const LandingContent = () => {
             Frequently Asked Questions
           </Typography>
           {faqData.map((item, index) => (
-            <Accordion key={index} sx={{ backgroundColor: "#F2F1E7" }} elevation={0}>
+            <Accordion key={index} sx={{ backgroundColor: "#F2F1E7" }} elevation={0} expanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={`panel${index}-content`}
