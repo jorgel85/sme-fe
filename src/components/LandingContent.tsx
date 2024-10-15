@@ -15,16 +15,17 @@ const LandingContent = () => {
         width: "100%",
         margin: "auto",
         backgroundColor: "#F2F1E7",
-        height: "100vh",
+        pt: { xs: "70px", lg: 0 },
+        height: { lg: "100vh" },
       }}
     >
-      <Container maxWidth="xl">
-        <Grid container>
+      <Container maxWidth="xl" sx={{ height: "100%" }}>
+        <Grid container height="100%">
           <Grid
             size={{ sm: 7, md: 6 }}
-            sx={{ display: "flex", alignItems: "center" }}
+            sx={{ display: "flex", alignItems: { xs: "center", lg: "end" } }}
           >
-            <Box>
+            <Box sx={{ py: { lg: 10, xl: 3 } }}>
               <Typography
                 component="p"
                 sx={{
@@ -38,7 +39,6 @@ const LandingContent = () => {
                   fontWeight: 700,
                   lineHeight: 1.1,
                   color: "#143D5D",
-                  mt: { xs: 10, sm: 12, md: 16, lg: 8, xl: 4 },
                 }}
               >
                 ENHANCE
@@ -156,9 +156,16 @@ const LandingContent = () => {
               </Grid>
             </Box>
           </Grid>
-          <Grid size={{ sm: 5, md: 6 }}>
-            <Box sx={{ pt: 13, display: "flex", justifyContent: "flex-end" }}>
-              <img alt="Hero" src={heroImage} width="90%" />
+          <Grid
+            size={{ sm: 5, md: 6 }}
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", sm: "flex-end" },
+              alignItems: { xs: "center", xl: "end" },
+            }}
+          >
+            <Box sx={{ width: { lg: "90%" }, pt: { lg: 10, xl: 0 } }}>
+              <img alt="Hero" src={heroImage} width="100%" />
             </Box>
           </Grid>
         </Grid>
