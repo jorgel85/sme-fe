@@ -87,7 +87,12 @@ const PartnersPage = () => {
           <Button
             variant="contained"
             disableElevation
-            sx={{ backgroundColor: "#143D5D", borderRadius: 15 }}
+            sx={{
+              backgroundColor: "#143D5D",
+              borderRadius: 15,
+              fontSize: "16px",
+              textTransform: "none",
+            }}
           >
             Click here
           </Button>
