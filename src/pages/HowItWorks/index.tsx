@@ -23,7 +23,7 @@ const HowItWorksPage = () => {
           <Typography
             component="p"
             sx={{
-              fontSize: "45px",
+              fontSize: "40px",
               fontWeight: 700,
               color: "#143D5D",
               textAlign: "center",

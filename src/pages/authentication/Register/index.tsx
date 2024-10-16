@@ -129,7 +129,13 @@ const Register = () => {
         variant="contained"
         disableElevation
         fullWidth
-        sx={{ borderRadius: 15, backgroundColor: "#011C39", my: 1 }}
+        sx={{
+          borderRadius: 15,
+          backgroundColor: "#011C39",
+          my: 1,
+          fontSize: "16px",
+          textTransform: "none",
+        }}
       >
         Register
       </Button>

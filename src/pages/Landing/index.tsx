@@ -158,6 +158,8 @@ const LandingPage = () => {
                     background:
                       "linear-gradient(90deg, #FFB74D 30%, #C44D4F 90%)",
                     color: "white",
+                    fontSize: "16px",
+                    textTransform: "none",
                   }}
                   onClick={() => navigate("/register")}
                 >

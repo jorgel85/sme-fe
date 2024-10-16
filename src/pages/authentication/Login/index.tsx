@@ -99,7 +99,13 @@ const Login = () => {
         variant="contained"
         disableElevation
         fullWidth
-        sx={{ borderRadius: 15, backgroundColor: "#011C39", mb: 1 }}
+        sx={{
+          borderRadius: 15,
+          backgroundColor: "#011C39",
+          mb: 1,
+          fontSize: "16px",
+          textTransform: "none",
+        }}
       >
         Login
       </Button>
@@ -122,7 +128,8 @@ const Login = () => {
             color: "#BFBEBD",
           }}
         >
-          {" "}Register
+          {" "}
+          Register
         </Typography>
       </Link>
       <Box sx={{ display: { xs: "block", md: "none" } }}>

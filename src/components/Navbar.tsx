@@ -169,9 +169,13 @@ function Navbar() {
             <Button
               sx={{
                 m: { md: 1, lg: 2 },
-                color: location.pathname === "/how-it-works" ? "#143D5D" : "#353535",
-                fontWeight: location.pathname === "/how-it-works" ? "bold" : "normal",
+                color:
+                  location.pathname === "/how-it-works" ? "#143D5D" : "#353535",
+                fontWeight:
+                  location.pathname === "/how-it-works" ? "bold" : "normal",
                 display: "block",
+                fontSize: "16px",
+                textTransform: "none",
               }}
               onClick={() => navigate("/how-it-works")}
             >
@@ -180,9 +184,13 @@ function Navbar() {
             <Button
               sx={{
                 m: { md: 1, lg: 2 },
-                color: location.pathname === "/partners" ? "#143D5D" : "#353535",
-                fontWeight: location.pathname === "/partners" ? "bold" : "normal",
+                color:
+                  location.pathname === "/partners" ? "#143D5D" : "#353535",
+                fontWeight:
+                  location.pathname === "/partners" ? "bold" : "normal",
                 display: "block",
+                fontSize: "16px",
+                textTransform: "none",
               }}
               onClick={() => navigate("/partners")}
             >
@@ -194,6 +202,8 @@ function Navbar() {
                 color: location.pathname === "/shop" ? "#143D5D" : "#353535",
                 fontWeight: location.pathname === "/shop" ? "bold" : "normal",
                 display: "block",
+                fontSize: "16px",
+                textTransform: "none",
               }}
               onClick={() => navigate("/shop")}
             >
@@ -241,7 +251,12 @@ function Navbar() {
                 }}
               >
                 <Button
-                  sx={{ color: "#353535", display: "block" }}
+                  sx={{
+                    color: "#353535",
+                    display: "block",
+                    fontSize: "16px",
+                    textTransform: "none",
+                  }}
                   onClick={() => navigate("/login")}
                 >
                   Log in
@@ -251,6 +266,8 @@ function Navbar() {
                     mx: 1,
                     color: "white",
                     display: "block",
+                    fontSize: "16px",
+                    textTransform: "none",
                     backgroundColor: "#143D5D",
                     borderRadius: 20,
                   }}
@@ -307,10 +324,20 @@ function Navbar() {
                   open={Boolean(anchorElAuth)}
                   onClose={handleCloseAuthMenu}
                 >
-                  <MenuItem onClick={() => {navigate("/login"); handleCloseAuthMenu()}}>
+                  <MenuItem
+                    onClick={() => {
+                      navigate("/login");
+                      handleCloseAuthMenu();
+                    }}
+                  >
                     <Typography sx={{ textAlign: "center" }}>Log In</Typography>
                   </MenuItem>
-                  <MenuItem onClick={() => {navigate("/register"); handleCloseAuthMenu()}}>
+                  <MenuItem
+                    onClick={() => {
+                      navigate("/register");
+                      handleCloseAuthMenu();
+                    }}
+                  >
                     <Typography sx={{ textAlign: "center" }}>
                       Register
                     </Typography>
