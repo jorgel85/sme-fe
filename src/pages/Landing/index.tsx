@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Paper from "@mui/material/Paper";
@@ -15,6 +16,8 @@ import dammyPartner from "../../assets/images/dammy_partner.png";
 
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
   const faqData = [
     {
       question: "How does Synthesise.Me works?",
@@ -156,6 +159,7 @@ const LandingPage = () => {
                       "linear-gradient(90deg, #FFB74D 30%, #C44D4F 90%)",
                     color: "white",
                   }}
+                  onClick={() => navigate("/register")}
                 >
                   Register
                 </Button>
