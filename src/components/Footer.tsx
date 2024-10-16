@@ -68,13 +68,13 @@ const Footer = () => {
           </Typography>
           <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid size={4}>
-              <TwitterIcon sx={{ color: "white" }}/>
+              <TwitterIcon sx={{ color: "white" }} />
             </Grid>
             <Grid size={4}>
-              <InstagramIcon sx={{ color: "white" }}/>
+              <InstagramIcon sx={{ color: "white" }} />
             </Grid>
             <Grid size={4}>
-              <LinkedInIcon sx={{ color: "white" }}/>
+              <LinkedInIcon sx={{ color: "white" }} />
             </Grid>
           </Grid>
           <Typography
@@ -84,10 +84,22 @@ const Footer = () => {
               color: "white",
               textAlign: "center",
               mt: 5,
+              zIndex: 100
             }}
           >
             ©2024 Synthesise.Me, All Rights Reserved.
-            <Link to="/"><span style={{ color: "white", textDecoration: "underline", fontWeight: "bold" }}>{" "}Privacy Policy</span></Link>
+            <Link to="/privacy-policy">
+              <span
+                style={{
+                  color: "white",
+                  textDecoration: "underline",
+                  fontWeight: "bold",
+                }}
+              >
+                {" "}
+                Privacy Policy
+              </span>
+            </Link>
           </Typography>
         </Box>
       </Container>
