@@ -128,7 +128,6 @@ const Register = () => {
           // helperText="Please enter your phone number."
         /> */}
         <PhoneInput
-          country={"us"}
           value={phoneNumber}
           placeholder="Enter your phone number."
           enableSearch
