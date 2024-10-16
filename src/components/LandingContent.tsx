@@ -230,7 +230,7 @@ const LandingContent = () => {
                 <Typography
                   component="p"
                   sx={{
-                    fontSize: "65px",
+                    fontSize: { xs: "52px", lg: "65px"},
                     fontWeight: 800,
                     lineHeight: 1.1,
                     color: "#143D5D",
@@ -281,7 +281,7 @@ const LandingContent = () => {
                 <Typography
                   component="p"
                   sx={{
-                    fontSize: "65px",
+                    fontSize: { xs: "52px", lg: "65px"},
                     fontWeight: 800,
                     lineHeight: 1.1,
                     color: "#143D5D",
@@ -331,7 +331,7 @@ const LandingContent = () => {
                 <Typography
                   component="p"
                   sx={{
-                    fontSize: "65px",
+                    fontSize: { xs: "52px", lg: "65px"},
                     fontWeight: 800,
                     lineHeight: 1.1,
                     color: "#143D5D",
