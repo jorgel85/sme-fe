@@ -3,7 +3,6 @@ import LandingContent from "../../components/LandingContent";
 import Navbar from "../../components/Navbar";
 
 const LandingPage = () => {
-  document.title = "Synthesise Me";
   return (
     <>
       <Navbar/>
