@@ -2,6 +2,7 @@ import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
 import HowItWorksPage from "../pages/HowItWorks";
 import LandingPage from "../pages/Landing";
+import PartnersPage from "../pages/Partners";
 
 interface RouteProps {
   path: string;
@@ -12,6 +13,7 @@ interface RouteProps {
 const userRoutes: Array<RouteProps> = [
   { path: "/", component: <LandingPage /> },
   { path: "/how-it-works", component: <HowItWorksPage /> },
+  { path: "/partners", component: <PartnersPage /> },
 ];
 
 const authRoutes: Array<RouteProps> = [
