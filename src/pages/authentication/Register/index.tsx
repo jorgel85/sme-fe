@@ -1,9 +1,18 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const RoundedTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -12,6 +21,23 @@ const RoundedTextField = styled(TextField)({
 });
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
+
+  const handleMouseUpPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
+
   return (
     <Box>
       <Typography
@@ -87,11 +113,12 @@ const Register = () => {
             fontWeight: 700,
             lineHeight: 1.1,
             color: "black",
+            mb: 1,
           }}
         >
           Phone number
         </Typography>
-        <RoundedTextField
+        {/* <RoundedTextField
           fullWidth
           placeholder="Enter your phone number."
           id="phoneNumber"
@@ -99,6 +126,23 @@ const Register = () => {
           margin="dense"
           // error={true}
           // helperText="Please enter your phone number."
+        /> */}
+        <PhoneInput
+          country={"us"}
+          value={phoneNumber}
+          placeholder="Enter your phone number."
+          enableSearch
+          onChange={(phone) => setPhoneNumber(phone)}
+          inputStyle={{
+            width: "100%",
+            borderRadius: "20px",
+            padding: "20px",
+            paddingLeft: "50px",
+            backgroundColor: "#F9F8EF"
+          }}
+          buttonStyle={{
+            borderRadius: "20px",
+          }}
         />
       </Box>
       <Box sx={{ my: 2 }}>
@@ -113,17 +157,63 @@ const Register = () => {
         >
           Password
         </Typography>
-        <RoundedTextField
-          fullWidth
-          placeholder="Enter your password."
-          type="password"
-          id="password"
-          size="small"
-          margin="dense"
-          autoComplete="current-password"
-          // error={true}
-          // helperText="Please enter a strong password."
-        />
+        <FormControl sx={{ width: "100%", mt: 1 }} variant="outlined">
+          <OutlinedInput
+            id="password"
+            type={showPassword ? "text" : "password"}
+            size="small"
+            sx={{ borderRadius: "20px" }}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  onMouseUp={handleMouseUpPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            placeholder="Enter your password."
+          />
+        </FormControl>
+      </Box>
+      <Box sx={{ my: 2 }}>
+        <Typography
+          component="p"
+          sx={{
+            fontSize: "14px",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            color: "black",
+          }}
+        >
+          Confirm Password
+        </Typography>
+        <FormControl sx={{ width: "100%", mt: 1 }} variant="outlined">
+          <OutlinedInput
+            id="confirm-password"
+            type={showPassword ? "text" : "password"}
+            size="small"
+            sx={{ borderRadius: "20px" }}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  onMouseUp={handleMouseUpPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            placeholder="Confirm your password."
+          />
+        </FormControl>
       </Box>
       <Button
         variant="contained"
@@ -132,7 +222,7 @@ const Register = () => {
         sx={{
           borderRadius: 15,
           backgroundColor: "#011C39",
-          my: 1,
+          my: 2,
           fontSize: "16px",
           textTransform: "none",
         }}

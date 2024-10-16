@@ -102,7 +102,7 @@ const Login = () => {
         sx={{
           borderRadius: 15,
           backgroundColor: "#011C39",
-          mb: 1,
+          mb: 2,
           fontSize: "16px",
           textTransform: "none",
         }}
