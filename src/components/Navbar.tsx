@@ -204,6 +204,7 @@ function Navbar() {
                 </Button>
                 <Button
                   sx={{ color: "#353535" }}
+                  disabled
                   onClick={(e) => setAnchorElLang(e.currentTarget)}
                 >
                   {lang}
@@ -259,13 +260,13 @@ function Navbar() {
                     </Typography>
                   </MenuItem>
                   <Divider />
-                  <MenuItem onClick={handleCloseAuthMenu}>
+                  <MenuItem onClick={handleCloseAuthMenu} disabled>
                     <ListItemIcon>
                       <CheckIcon />
                     </ListItemIcon>
                     English
                   </MenuItem>
-                  <MenuItem onClick={handleCloseAuthMenu}>
+                  <MenuItem onClick={handleCloseAuthMenu} disabled>
                     <ListItemText inset>Turkish</ListItemText>
                   </MenuItem>
                 </Menu>
