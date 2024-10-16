@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -27,6 +27,9 @@ interface LanguageItem {
 }
 
 function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false);
   const [lang, setLang] = React.useState<string>("En");
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -47,7 +50,6 @@ function Navbar() {
     { title: "Turkish", value: "Tu" },
   ];
 
-  const pages = ["How it Works", "Partners", "Shop"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -124,11 +126,32 @@ function Navbar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" } }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem
+                onClick={() => {
+                  navigate("/how-it-works");
+                  handleCloseNavMenu();
+                }}
+              >
+                <Typography sx={{ textAlign: "center" }}>
+                  How It Works
+                </Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  navigate("/partners");
+                  handleCloseNavMenu();
+                }}
+              >
+                <Typography sx={{ textAlign: "center" }}>Partners</Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  navigate("/shop");
+                  handleCloseNavMenu();
+                }}
+              >
+                <Typography sx={{ textAlign: "center" }}>Shop</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -143,18 +166,39 @@ function Navbar() {
               justifyContent: "center",
             }}
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                sx={{
-                  m: { md: 1, lg: 2 },
-                  color: "#353535",
-                  display: "block",
-                }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              sx={{
+                m: { md: 1, lg: 2 },
+                color: location.pathname === "/how-it-works" ? "#143D5D" : "#353535",
+                fontWeight: location.pathname === "/how-it-works" ? "bold" : "normal",
+                display: "block",
+              }}
+              onClick={() => navigate("/how-it-works")}
+            >
+              How It Works
+            </Button>
+            <Button
+              sx={{
+                m: { md: 1, lg: 2 },
+                color: location.pathname === "/partners" ? "#143D5D" : "#353535",
+                fontWeight: location.pathname === "/partners" ? "bold" : "normal",
+                display: "block",
+              }}
+              onClick={() => navigate("/partners")}
+            >
+              Partners
+            </Button>
+            <Button
+              sx={{
+                m: { md: 1, lg: 2 },
+                color: location.pathname === "/shop" ? "#143D5D" : "#353535",
+                fontWeight: location.pathname === "/shop" ? "bold" : "normal",
+                display: "block",
+              }}
+              onClick={() => navigate("/shop")}
+            >
+              Shop
+            </Button>
           </Box>
           {isLoggedIn ? (
             <Box sx={{ flexGrow: 0 }}>
@@ -196,10 +240,22 @@ function Navbar() {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                <Button sx={{ color: "#353535", display: "block" }}>
+                <Button
+                  sx={{ color: "#353535", display: "block" }}
+                  onClick={() => navigate("/login")}
+                >
                   Log in
                 </Button>
-                <Button sx={{ mx: 1, color: "white", display: "block", backgroundColor: "#143D5D", borderRadius: 20 }}>
+                <Button
+                  sx={{
+                    mx: 1,
+                    color: "white",
+                    display: "block",
+                    backgroundColor: "#143D5D",
+                    borderRadius: 20,
+                  }}
+                  onClick={() => navigate("/register")}
+                >
                   Register
                 </Button>
                 <Button
@@ -251,10 +307,10 @@ function Navbar() {
                   open={Boolean(anchorElAuth)}
                   onClose={handleCloseAuthMenu}
                 >
-                  <MenuItem onClick={handleCloseAuthMenu}>
+                  <MenuItem onClick={() => {navigate("/login"); handleCloseAuthMenu()}}>
                     <Typography sx={{ textAlign: "center" }}>Log In</Typography>
                   </MenuItem>
-                  <MenuItem onClick={handleCloseAuthMenu}>
+                  <MenuItem onClick={() => {navigate("/register"); handleCloseAuthMenu()}}>
                     <Typography sx={{ textAlign: "center" }}>
                       Register
                     </Typography>
