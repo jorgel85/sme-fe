@@ -21,7 +21,6 @@ import ListItemText from "@mui/material/ListItemText";
 
 import logo from "../assets/images/logo.svg";
 
-
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -167,8 +166,7 @@ function Navbar() {
                 m: { md: 1, lg: 2 },
                 color:
                   location.pathname === "/how-it-works" ? "#143D5D" : "#353535",
-                fontWeight:
-                  location.pathname === "/how-it-works" ? "bold" : "normal",
+                fontWeight: location.pathname === "/how-it-works" ? 700 : 500,
                 display: "block",
                 fontSize: "16px",
                 textTransform: "none",

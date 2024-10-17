@@ -128,7 +128,8 @@ const Register = () => {
             borderRadius: "20px",
             padding: "20px",
             paddingLeft: "50px",
-            backgroundColor: "#F9F8EF"
+            backgroundColor: "#F9F8EF",
+            fontFamily: '"Montserrat", "Helvetica", "Arial", sans-serif'
           }}
           buttonStyle={{
             borderRadius: "20px",

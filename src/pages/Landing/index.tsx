@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
@@ -13,6 +14,7 @@ import FaqItem from "../../components/FaqItem";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const [gradientDirection, setGradientDirection] = useState("90deg");
 
   const faqData: FaqData[] = [
     {
@@ -149,15 +151,17 @@ const LandingPage = () => {
                   variant="contained"
                   disableElevation
                   endIcon={<ArrowForwardIcon />}
+                  onMouseEnter={() => setGradientDirection("-90deg")}
+                  onMouseLeave={() => setGradientDirection("90deg")}
                   sx={{
                     mt: { xs: 3, sm: 1, md: 3 },
                     borderRadius: 10,
                     padding: "6px 20px",
-                    background:
-                      "linear-gradient(90deg, #FFB74D 30%, #C44D4F 90%)",
+                    background: `linear-gradient(${gradientDirection}, #FFB74D 30%, #C44D4F 90%)`,
                     color: "white",
                     fontSize: "16px",
                     textTransform: "none",
+                    transition: "background 0.9s ease",
                   }}
                   onClick={() => navigate("/register")}
                 >
