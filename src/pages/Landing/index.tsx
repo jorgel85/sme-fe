@@ -6,32 +6,30 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 
 import heroImage from "../../assets/images/hero.png";
 import dammyPartner from "../../assets/images/dammy_partner.png";
-
+import FaqItem from "../../components/FaqItem";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  const faqData = [
+  const faqData: FaqData[] = [
     {
       question: "How does Synthesise.Me works?",
       answer:
         "Synthesise.Me is a is a program that rewards you $1 in credit for every $1 you spent, up to a value of $500. When you shop through our website simply click on the link to your favorite product from our website, make your purchase as you normally would and then use the promo code associated with your account to enjoy your discount.",
     },
     {
-      question: "Is there a minimum purchase amount to earn with Synthesise.Me?",
+      question:
+        "Is there a minimum purchase amount to earn with Synthesise.Me?",
       answer:
         "No, there is no minimum purchase amount required to earn with Synthesise.Me. For every $1 spent, you earn $1 in credit, up to a value of $500.",
     },
     {
       question: "How can I track my earnings?",
-      answer: "You can track your earnings by logging into your account on our website. Your account will show a detailed breakdown of your purchase history, including the amount earned, the retailer, and the status of each transaction.",
+      answer:
+        "You can track your earnings by logging into your account on our website. Your account will show a detailed breakdown of your purchase history, including the amount earned, the retailer, and the status of each transaction.",
     },
     {
       question: "Is my personal information safe on your website?",
@@ -237,7 +235,7 @@ const LandingPage = () => {
                 <Typography
                   component="p"
                   sx={{
-                    fontSize: { xs: "52px", lg: "65px"},
+                    fontSize: { xs: "52px", lg: "65px" },
                     fontWeight: 800,
                     lineHeight: 1.1,
                     color: "#143D5D",
@@ -288,7 +286,7 @@ const LandingPage = () => {
                 <Typography
                   component="p"
                   sx={{
-                    fontSize: { xs: "52px", lg: "65px"},
+                    fontSize: { xs: "52px", lg: "65px" },
                     fontWeight: 800,
                     lineHeight: 1.1,
                     color: "#143D5D",
@@ -338,7 +336,7 @@ const LandingPage = () => {
                 <Typography
                   component="p"
                   sx={{
-                    fontSize: { xs: "52px", lg: "65px"},
+                    fontSize: { xs: "52px", lg: "65px" },
                     fontWeight: 800,
                     lineHeight: 1.1,
                     color: "#143D5D",
@@ -504,7 +502,7 @@ const LandingPage = () => {
         </Box>
       </Container>
       <Container maxWidth="sm">
-        <Box sx={{ mb: 5 }}>
+        <Box sx={{ mb: 10 }}>
           <Typography
             component="p"
             sx={{
@@ -517,19 +515,8 @@ const LandingPage = () => {
           >
             Frequently Asked Questions
           </Typography>
-          {faqData.map((item, index) => (
-            <Accordion key={index} sx={{ backgroundColor: "#F2F1E7" }} elevation={0}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`panel${index}-content`}
-                id={`panel${index}-header`}
-              >
-                <Typography variant="h6">{item.question}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>{item.answer}</Typography>
-              </AccordionDetails>
-            </Accordion>
+          {faqData.map((item) => (
+            <FaqItem key={item.question} item={item} />
           ))}
         </Box>
       </Container>

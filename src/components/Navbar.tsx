@@ -21,10 +21,6 @@ import ListItemText from "@mui/material/ListItemText";
 
 import logo from "../assets/images/logo.svg";
 
-interface LanguageItem {
-  title: string;
-  value: string;
-}
 
 function Navbar() {
   const navigate = useNavigate();

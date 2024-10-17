@@ -118,15 +118,6 @@ const Register = () => {
         >
           Phone number
         </Typography>
-        {/* <RoundedTextField
-          fullWidth
-          placeholder="Enter your phone number."
-          id="phoneNumber"
-          size="small"
-          margin="dense"
-          // error={true}
-          // helperText="Please enter your phone number."
-        /> */}
         <PhoneInput
           value={phoneNumber}
           placeholder="Enter your phone number."
