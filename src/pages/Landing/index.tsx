@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
@@ -14,7 +13,6 @@ import FaqItem from "../../components/FaqItem";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [gradientDirection, setGradientDirection] = useState("90deg");
 
   const faqData: FaqData[] = [
     {
@@ -61,7 +59,7 @@ const LandingPage = () => {
             >
               <Box sx={{ pt: { xl: 10 } }}>
                 <Typography
-                  component="p"
+                  component="span"
                   sx={{
                     fontSize: {
                       xs: "39px",
@@ -72,28 +70,25 @@ const LandingPage = () => {
                     },
                     fontWeight: 700,
                     lineHeight: 1.1,
-                    color: "#143D5D",
+                    background: "linear-gradient(270deg, #FFB74D, #C44D4F)",
+                    backgroundSize: "200% 200%",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    animation: "gradientAnimation 3s ease infinite",
+                    "@keyframes gradientAnimation": {
+                      "0%": {
+                        backgroundPosition: "0% 50%",
+                      },
+                      "50%": {
+                        backgroundPosition: "100% 50%",
+                      },
+                      "100%": {
+                        backgroundPosition: "0% 50%",
+                      },
+                    },
                   }}
                 >
                   ENHANCE
-                  <Typography
-                    component="span"
-                    sx={{
-                      fontSize: {
-                        xs: "39px",
-                        sm: "32px",
-                        md: "50px",
-                        lg: "68px",
-                        xl: "78px",
-                      },
-                      fontWeight: 700,
-                      lineHeight: 1.1,
-                      color: "#353535",
-                    }}
-                  >
-                    {" "}
-                    YOUR
-                  </Typography>
                 </Typography>
                 <Typography
                   component="span"
@@ -107,9 +102,12 @@ const LandingPage = () => {
                     },
                     fontWeight: 700,
                     lineHeight: 1.1,
-                    color: "#353535",
+                    color: "#BFBEBD",
                   }}
                 >
+                  {" "}
+                  YOUR
+                  <br />
                   POSSIBILITIES.
                 </Typography>
                 <Typography
@@ -151,17 +149,18 @@ const LandingPage = () => {
                   variant="contained"
                   disableElevation
                   endIcon={<ArrowForwardIcon />}
-                  onMouseEnter={() => setGradientDirection("-90deg")}
-                  onMouseLeave={() => setGradientDirection("90deg")}
                   sx={{
                     mt: { xs: 3, sm: 1, md: 3 },
                     borderRadius: 10,
                     padding: "6px 20px",
-                    background: `linear-gradient(${gradientDirection}, #FFB74D 30%, #C44D4F 90%)`,
+                    background: `linear-gradient(90deg, #FFB74D 30%, #C44D4F 90%)`,
                     color: "white",
                     fontSize: "16px",
                     textTransform: "none",
                     transition: "background 0.9s ease",
+                    "&:hover": {
+                      background: `linear-gradient(-90deg, #FFB74D 30%, #C44D4F 90%)`,
+                    },
                   }}
                   onClick={() => navigate("/register")}
                 >

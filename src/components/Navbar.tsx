@@ -162,6 +162,7 @@ function Navbar() {
             }}
           >
             <Button
+              disableRipple
               sx={{
                 m: { md: 1, lg: 2 },
                 color:
@@ -170,12 +171,18 @@ function Navbar() {
                 display: "block",
                 fontSize: "16px",
                 textTransform: "none",
+                borderRadius: 10,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent",
+                },
               }}
               onClick={() => navigate("/how-it-works")}
             >
               How It Works
             </Button>
             <Button
+              disableRipple
               sx={{
                 m: { md: 1, lg: 2 },
                 color:
@@ -185,12 +192,18 @@ function Navbar() {
                 display: "block",
                 fontSize: "16px",
                 textTransform: "none",
+                borderRadius: 10,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent",
+                },
               }}
               onClick={() => navigate("/partners")}
             >
               Partners
             </Button>
             <Button
+              disableRipple
               sx={{
                 m: { md: 1, lg: 2 },
                 color: location.pathname === "/shop" ? "#143D5D" : "#353535",
@@ -198,6 +211,11 @@ function Navbar() {
                 display: "block",
                 fontSize: "16px",
                 textTransform: "none",
+                borderRadius: 10,
+                "&:hover": {
+                  color: "#FFB74D",
+                  backgroundColor: "transparent",
+                },
               }}
               onClick={() => navigate("/shop")}
             >
@@ -250,6 +268,10 @@ function Navbar() {
                     display: "block",
                     fontSize: "16px",
                     textTransform: "none",
+                    "&:hover": {
+                      color: "#FFB74D",
+                      backgroundColor: "transparent",
+                    },
                   }}
                   onClick={() => navigate("/login")}
                 >
