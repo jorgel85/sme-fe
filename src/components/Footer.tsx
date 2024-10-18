@@ -103,7 +103,7 @@ const Footer = () => {
           </Typography>
         </Box>
       </Container>
-      <Box sx={{ position: "absolute", bottom: 0 }}>
+      <Box sx={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
         <img src={footer_bg_logo} alt="Footer Logo" width="100%" />
       </Box>
     </Box>

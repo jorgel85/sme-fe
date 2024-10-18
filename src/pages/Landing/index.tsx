@@ -10,6 +10,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import heroImage from "../../assets/images/hero.png";
 import dammyPartner from "../../assets/images/dammy_partner.png";
 import FaqItem from "../../components/FaqItem";
+import "./styles.css";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -70,7 +71,7 @@ const LandingPage = () => {
                     },
                     fontWeight: 700,
                     lineHeight: 1.1,
-                    background: "linear-gradient(270deg, #FFB74D, #C44D4F)",
+                    background: "linear-gradient(270deg, #5d5d5d, #143D5D)",
                     backgroundSize: "200% 200%",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -166,32 +167,6 @@ const LandingPage = () => {
                 >
                   Register
                 </Button>
-                <Typography
-                  sx={{
-                    fontSize: 20,
-                    fontWeight: 400,
-                    color: "#BFBEBD",
-                    mt: { lg: 4, xl: 8 },
-                    display: { xs: "none", lg: "flex" },
-                  }}
-                >
-                  Trusted partners:
-                </Typography>
-                <Grid
-                  container
-                  spacing={3}
-                  sx={{ mt: 1, display: { xs: "none", lg: "flex" } }}
-                >
-                  <Grid>
-                    <img alt="Partner" src={dammyPartner} />
-                  </Grid>
-                  <Grid>
-                    <img alt="Partner" src={dammyPartner} />
-                  </Grid>
-                  <Grid>
-                    <img alt="Partner" src={dammyPartner} />
-                  </Grid>
-                </Grid>
               </Box>
             </Grid>
             <Grid
@@ -209,6 +184,73 @@ const LandingPage = () => {
           </Grid>
         </Container>
       </Box>
+      <Container maxWidth="xl">
+        <Typography
+          component="p"
+          sx={{
+            fontSize: "20px",
+            fontWeight: 400,
+            color: "#BFBEBD",
+            mt: 5,
+            mb: 2,
+          }}
+        >
+          Trusted partners:
+        </Typography>
+        <Box
+          sx={{
+            overflow: "hidden", // Hide overflow
+            whiteSpace: "nowrap", // Keep logos in a single line
+          }}
+        >
+          <Box
+            sx={{
+              display: "inline-block",
+              animation: "scroll-left 20s linear infinite", // Animation effect
+              whiteSpace: "nowrap", // Ensure logos are in a single line
+            }}
+          >
+            {/* Repeat logos to make the scrolling continuous */}
+            {Array.from({ length: 10 }).map((_, index) => (
+              <Box
+                key={index}
+                sx={{ display: "inline-block", margin: "0 15px" }}
+              >
+                <img
+                  alt="Partner"
+                  src={dammyPartner}
+                  style={{ height: "50px" }}
+                />
+              </Box>
+            ))}
+            {/* Duplicate logos for seamless scrolling */}
+            {Array.from({ length: 10 }).map((_, index) => (
+              <Box
+                key={`duplicate-${index}`}
+                sx={{ display: "inline-block", margin: "0 15px" }}
+              >
+                <img
+                  alt="Partner"
+                  src={dammyPartner}
+                  style={{ height: "50px" }}
+                />
+              </Box>
+            ))}
+          </Box>
+        </Box>
+        <style>
+          {`  
+          @keyframes scroll-left {  
+            0% {  
+              transform: translateX(0); /* Start at the beginning */  
+            }  
+            100% {  
+              transform: translateX(-50%); /* Move left by half the total width */  
+            }  
+          }  
+        `}
+        </style>
+      </Container>
       <Container maxWidth="lg">
         <Box sx={{ py: 5 }}>
           <Typography

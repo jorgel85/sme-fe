@@ -18,8 +18,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import CheckIcon from "@mui/icons-material/Check";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-
-import logo from "../assets/images/logo.svg";
+import { ReactComponent as Logo } from "../assets/images/logo.svg";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -39,6 +38,8 @@ function Navbar() {
   const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(
     null
   );
+  const [bgColor, setBgColor] = React.useState<string>("transparent");
+  const [logoColor, setLogoColor] = React.useState<string>("#143D5D");
 
   const items: LanguageItem[] = [
     { title: "English", value: "En" },
@@ -81,17 +82,37 @@ function Navbar() {
     setIsLoggedIn(!!userData);
   };
 
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > 0) {
+      setBgColor("#F2F1E7");
+    } else {
+      setBgColor("transparent");
+    }
+  };
+
   React.useEffect(() => {
     checkUserData();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "#F2F1E7" }} elevation={0}>
+    <AppBar position="fixed" sx={{ backgroundColor: bgColor }} elevation={0}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+            }}
+            onMouseEnter={() => setLogoColor("#FFB74D")}
+            onMouseLeave={() => setLogoColor("#143D5D")}
+          >
             <Link to="/">
-              <img src={logo} alt="Logo" />
+              <Logo style={{ color: logoColor }} />
             </Link>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -151,7 +172,7 @@ function Navbar() {
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <Link to="/">
-              <img src={logo} alt="Logo" />
+              <Logo style={{ color: logoColor }} />
             </Link>
           </Box>
           <Box
@@ -167,7 +188,7 @@ function Navbar() {
                 m: { md: 1, lg: 2 },
                 color:
                   location.pathname === "/how-it-works" ? "#143D5D" : "#353535",
-                fontWeight: location.pathname === "/how-it-works" ? 700 : 500,
+                fontWeight: 500,
                 display: "block",
                 fontSize: "16px",
                 textTransform: "none",
@@ -187,8 +208,7 @@ function Navbar() {
                 m: { md: 1, lg: 2 },
                 color:
                   location.pathname === "/partners" ? "#143D5D" : "#353535",
-                fontWeight:
-                  location.pathname === "/partners" ? "bold" : "normal",
+                fontWeight: 500,
                 display: "block",
                 fontSize: "16px",
                 textTransform: "none",
@@ -207,7 +227,7 @@ function Navbar() {
               sx={{
                 m: { md: 1, lg: 2 },
                 color: location.pathname === "/shop" ? "#143D5D" : "#353535",
-                fontWeight: location.pathname === "/shop" ? "bold" : "normal",
+                fontWeight: 500,
                 display: "block",
                 fontSize: "16px",
                 textTransform: "none",

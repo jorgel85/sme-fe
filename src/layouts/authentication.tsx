@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Container from "@mui/material/Container";
 
-import logo from "../assets/images/logo.svg";
+import { ReactComponent as Logo } from "../assets/images/logo.svg";
 import login_right_bg from "../assets/images/login_right_bg.png";
 import register_right_bg from "../assets/images/register_right_bg.png";
 
@@ -42,7 +42,7 @@ const AuthenticationLayout = (props: any) => {
               }}
             >
               <Link to="/">
-                <img src={logo} alt="Logo" />
+                <Logo style={{ color: "#143D5D" }} />
               </Link>
             </Box>
             {props.children}

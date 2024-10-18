@@ -1,4 +1,4 @@
-export default function accessToken() {
+function getAccessToken() {
   const storedData = localStorage.getItem("authUser");
 
   if (storedData) {
@@ -15,3 +15,7 @@ export default function accessToken() {
 
   return "";
 }
+
+const accessToken = getAccessToken();
+
+export default accessToken;

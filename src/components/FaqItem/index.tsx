@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Box, Typography, IconButton } from "@mui/material";  
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";  
 import { CSSTransition } from "react-transition-group";  
-import "./index.css";
+import "./styles.css";
 
 interface FaqItemProps {  
   item: FaqData;  

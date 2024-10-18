@@ -41,14 +41,14 @@ const PartnersPage = () => {
         </Box>
         <Box sx={{ mb: 10 }}>
           <Grid container spacing={3}>
-            {Array(18)
+            {Array(12)
               .fill(true)
               .map((_, idx) => (
                 <Grid key={idx} size={{ xs: 6, sm: 4, md: 3, lg: 2 }}>
                   <Box
                     sx={{
                       px: 0.5,
-                      py: 7,
+                      py: 5,
                       mb: 1,
                       backgroundColor: "#F2F1E7",
                       borderRadius: 5,

@@ -3,7 +3,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { LoginTypes } from "./actionType";
 import { apiError, loginSuccess } from "./action";
 
-import { postLogin } from "../../../helpers/backend_helper";
+import { postLogin } from "../../../helpers/api_helper";
 
 function* loginUser({ payload: { user, history } }: any) {
   try {
