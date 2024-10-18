@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -12,6 +13,44 @@ const RoundedTextField = styled(TextField)({
 });
 
 const Login = () => {
+  const [email, setEmail] = useState("");  
+  const [password, setPassword] = useState("");  
+  const [errors, setErrors] = useState({  
+    email: "",  
+    password: "",  
+  });
+
+  const validate = () => {  
+    let valid = true;  
+    const newErrors = {  
+      email: "",  
+      password: "",  
+    };  
+
+    if (!email) {  
+      newErrors.email = "Email is required.";  
+      valid = false;  
+    } else if (!/\S+@\S+\.\S+/.test(email)) {  
+      newErrors.email = "Email address is invalid.";  
+      valid = false;  
+    }  
+    
+    if (!password) {  
+      newErrors.password = "Password is required.";  
+      valid = false;  
+    }  
+
+    setErrors(newErrors);  
+    return valid;  
+  };  
+
+  const handleLogin = () => {  
+    if (validate()) {  
+      console.log("Email:", email);  
+      console.log("Password:", password);
+    }  
+  };
+
   return (
     <Box>
       <Typography
@@ -53,8 +92,10 @@ const Login = () => {
           id="email"
           size="small"
           margin="dense"
-          // error={true}
-          // helperText="Incorrect email address."
+          value={email}  
+          onChange={(e) => setEmail(e.target.value)}
+          error={!!errors.email}  
+          helperText={errors.email}
         />
       </Box>
       <Box sx={{ my: 2 }}>
@@ -77,8 +118,10 @@ const Login = () => {
           size="small"
           margin="dense"
           autoComplete="current-password"
-          // error={true}
-          // helperText="Incorrect password."
+          value={password}  
+          onChange={(e) => setPassword(e.target.value)}
+          error={!!errors.password}  
+          helperText={errors.password}
         />
       </Box>
       <Link to="/forgot-password" style={{ textDecoration: "none" }}>
@@ -106,6 +149,7 @@ const Login = () => {
           fontSize: "16px",
           textTransform: "none",
         }}
+        onClick={handleLogin}
       >
         Login
       </Button>

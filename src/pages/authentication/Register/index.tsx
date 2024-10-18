@@ -22,7 +22,18 @@ const RoundedTextField = styled(TextField)({
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errors, setErrors] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -36,6 +47,58 @@ const Register = () => {
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
+  };
+
+  const validate = () => {
+    let valid = true;
+    const newErrors = {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: "",
+    };
+
+    if (!fullName) {
+      newErrors.fullName = "Full name is required.";
+      valid = false;
+    }
+    if (!email) {
+      newErrors.email = "Email is required.";
+      valid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email address is invalid.";
+      valid = false;
+    }
+    if (!phoneNumber) {
+      newErrors.phoneNumber = "Phone number is required.";
+      valid = false;
+    }
+    if (!password) {
+      newErrors.password = "Password is required.";
+      valid = false;
+    }
+    if (password && password.length < 8) {
+      newErrors.password = "Password must be more than 8 letters.";
+      valid = false;
+    }
+    if (password !== confirmPassword) {
+      newErrors.confirmPassword = "Passwords do not match.";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleRegister = () => {
+    if (validate()) {
+      console.log("Full Name:", fullName);
+      console.log("Email:", email);
+      console.log("Phone Number:", phoneNumber);
+      console.log("Password:", password);
+      console.log("Confirm Password:", confirmPassword);
+    }
   };
 
   return (
@@ -79,8 +142,10 @@ const Register = () => {
           id="fullName"
           size="small"
           margin="dense"
-          // error={true}
-          // helperText="Please enter your full name."
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
+          error={!!errors.fullName}
+          helperText={errors.fullName}
         />
       </Box>
       <Box sx={{ my: 2 }}>
@@ -101,8 +166,10 @@ const Register = () => {
           id="email"
           size="small"
           margin="dense"
-          // error={true}
-          // helperText="Please enter your email address."
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          error={!!errors.email}
+          helperText={errors.email}
         />
       </Box>
       <Box sx={{ my: 2 }}>
@@ -129,12 +196,17 @@ const Register = () => {
             padding: "20px",
             paddingLeft: "50px",
             backgroundColor: "#F9F8EF",
-            fontFamily: '"Montserrat", "Helvetica", "Arial", sans-serif'
+            fontFamily: '"Montserrat", "Helvetica", "Arial", sans-serif',
           }}
           buttonStyle={{
             borderRadius: "20px",
           }}
         />
+        {errors.phoneNumber && (
+          <Typography color="error" sx={{ fontSize: "12px", px: 2, mt: "5px" }}>
+            {errors.phoneNumber}
+          </Typography>
+        )}
       </Box>
       <Box sx={{ my: 2 }}>
         <Typography
@@ -153,6 +225,7 @@ const Register = () => {
             id="password"
             type={showPassword ? "text" : "password"}
             size="small"
+            placeholder="Enter your password."
             sx={{ borderRadius: "20px" }}
             endAdornment={
               <InputAdornment position="end">
@@ -167,8 +240,18 @@ const Register = () => {
                 </IconButton>
               </InputAdornment>
             }
-            placeholder="Enter your password."
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            error={!!errors.password}
           />
+          {errors.password && (
+            <Typography
+              color="error"
+              sx={{ fontSize: "12px", px: 2, mt: "5px" }}
+            >
+              {errors.password}
+            </Typography>
+          )}
         </FormControl>
       </Box>
       <Box sx={{ my: 2 }}>
@@ -189,6 +272,7 @@ const Register = () => {
             type={showPassword ? "text" : "password"}
             size="small"
             sx={{ borderRadius: "20px" }}
+            placeholder="Confirm your password."
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -202,8 +286,18 @@ const Register = () => {
                 </IconButton>
               </InputAdornment>
             }
-            placeholder="Confirm your password."
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            error={!!errors.confirmPassword}
           />
+          {errors.confirmPassword && (
+            <Typography
+              color="error"
+              sx={{ fontSize: "12px", px: 2, mt: "5px" }}
+            >
+              {errors.confirmPassword}
+            </Typography>
+          )}
         </FormControl>
       </Box>
       <Button
@@ -217,6 +311,7 @@ const Register = () => {
           fontSize: "16px",
           textTransform: "none",
         }}
+        onClick={handleRegister}
       >
         Register
       </Button>
