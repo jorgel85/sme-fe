@@ -177,7 +177,7 @@ const LandingPage = () => {
                 alignItems: { xs: "center", lg: "flex-end" },
               }}
             >
-              <Box sx={{ width: { lg: "95%" }, pt: { xl: 7 } }}>
+              <Box sx={{ width: { lg: "95%" }, pt: { xl: 0 } }}>
                 <img alt="Hero" src={heroImage} width="100%" />
               </Box>
             </Grid>
