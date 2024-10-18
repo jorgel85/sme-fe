@@ -114,7 +114,7 @@ const LandingPage = () => {
                   sx={{
                     fontSize: { xs: "15px", md: "20px" },
                     fontWeight: 400,
-                    color: "#BFBEBD",
+                    color: "#353535",
                     mt: { xs: 3, sm: 1, md: 3 },
                   }}
                 >
@@ -124,7 +124,7 @@ const LandingPage = () => {
                   sx={{
                     fontSize: { xs: "15px", md: "20px" },
                     fontWeight: 400,
-                    color: "#BFBEBD",
+                    color: "#353535",
                   }}
                 >
                   Up to a value of $500 across 500+ brands, handpicked to match

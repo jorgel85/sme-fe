@@ -195,6 +195,7 @@ const Register = () => {
           inputStyle={{
             width: "100%",
             borderRadius: "20px",
+            borderColor: errors.phoneNumber ? "red" : "#BFBEBD",
             padding: "20px",
             paddingLeft: "50px",
             backgroundColor: "#F9F8EF",
