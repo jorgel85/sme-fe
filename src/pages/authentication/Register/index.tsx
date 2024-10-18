@@ -124,7 +124,7 @@ const Register = () => {
       >
         Register to create your first account.
       </Typography>
-      <Box sx={{ my: 2 }}>
+      <Box sx={{ mt: 2, mb: 1 }}>
         <Typography
           component="p"
           sx={{
@@ -141,14 +141,14 @@ const Register = () => {
           placeholder="Enter your full name."
           id="fullName"
           size="small"
-          margin="dense"
+          margin="none"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           error={!!errors.fullName}
           helperText={errors.fullName}
         />
       </Box>
-      <Box sx={{ my: 2 }}>
+      <Box sx={{ my: 1.5 }}>
         <Typography
           component="p"
           sx={{
@@ -165,14 +165,14 @@ const Register = () => {
           placeholder="Enter your email."
           id="email"
           size="small"
-          margin="dense"
+          margin="none"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           error={!!errors.email}
           helperText={errors.email}
         />
       </Box>
-      <Box sx={{ my: 2 }}>
+      <Box sx={{ my: 1.5 }}>
         <Typography
           component="p"
           sx={{
@@ -208,7 +208,7 @@ const Register = () => {
           </Typography>
         )}
       </Box>
-      <Box sx={{ my: 2 }}>
+      <Box sx={{ my: 1.5 }}>
         <Typography
           component="p"
           sx={{
@@ -254,7 +254,7 @@ const Register = () => {
           )}
         </FormControl>
       </Box>
-      <Box sx={{ my: 2 }}>
+      <Box sx={{ my: 1.5 }}>
         <Typography
           component="p"
           sx={{
