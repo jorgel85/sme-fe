@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -12,6 +12,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "react-phone-input-2/lib/style.css";
 
 const ResetPassword = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -58,7 +59,7 @@ const ResetPassword = () => {
     event.preventDefault();
   };
 
-  const handleLogin = () => {
+  const handleResetPassword = () => {
     if (validate()) {
       console.log("Password:", password);
       console.log("Confirm Password:", confirmPassword);
@@ -191,7 +192,7 @@ const ResetPassword = () => {
           fontSize: "16px",
           textTransform: "none",
         }}
-        onClick={handleLogin}
+        onClick={handleResetPassword}
       >
         Reset your password
       </Button>
@@ -212,6 +213,7 @@ const ResetPassword = () => {
             backgroundColor: "rgba(53, 53, 53, 0.1)",
           },
         }}
+        onClick={() => navigate("/forgot-password")}
       >
         Back
       </Button>

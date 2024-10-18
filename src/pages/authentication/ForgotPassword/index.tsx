@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -13,6 +13,7 @@ const RoundedTextField = styled(TextField)({
 });
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({
     email: "",
@@ -36,7 +37,7 @@ const ForgotPassword = () => {
     return valid;
   };
 
-  const handleLogin = () => {
+  const handleSendEmail = () => {
     if (validate()) {
       console.log("Email:", email);
     }
@@ -100,7 +101,7 @@ const ForgotPassword = () => {
           fontSize: "16px",
           textTransform: "none",
         }}
-        onClick={handleLogin}
+        onClick={handleSendEmail}
       >
         Reset your password
       </Button>
@@ -121,6 +122,7 @@ const ForgotPassword = () => {
             backgroundColor: "rgba(53, 53, 53, 0.1)",
         },
         }}
+        onClick={() => navigate("/login")}
       >
         Back
       </Button>
