@@ -52,22 +52,23 @@ const LandingPage = () => {
         <Container maxWidth="xl" sx={{ height: "100%" }}>
           <Grid container height="100%">
             <Grid
-              size={{ sm: 7, md: 6 }}
+              size={{ xs: 12, sm: 6 }}
               sx={{ display: "flex", alignItems: { xs: "center" } }}
             >
               <Box sx={{ pt: { xl: 10 } }}>
                 <Typography
                   component="span"
                   sx={{
+                    fontFamily: "'Druk Trial', sans-serif",
                     fontSize: {
-                      xs: "39px",
-                      sm: "32px",
-                      md: "50px",
-                      lg: "68px",
-                      xl: "78px",
+                      xs: "85px",
+                      sm: "65px",
+                      md: "100px",
+                      lg: "130px",
+                      xl: "150px",
                     },
                     fontWeight: 700,
-                    lineHeight: 1.1,
+                    lineHeight: 1.0,
                     background: "linear-gradient(270deg, #5d5d5d, #143D5D)",
                     backgroundSize: "200% 200%",
                     WebkitBackgroundClip: "text",
@@ -91,15 +92,16 @@ const LandingPage = () => {
                 <Typography
                   component="span"
                   sx={{
+                    fontFamily: "'Druk Trial', sans-serif",
                     fontSize: {
-                      xs: "39px",
-                      sm: "32px",
-                      md: "50px",
-                      lg: "68px",
-                      xl: "78px",
+                      xs: "85px",
+                      sm: "65px",
+                      md: "100px",
+                      lg: "130px",
+                      xl: "150px",
                     },
                     fontWeight: 700,
-                    lineHeight: 1.1,
+                    lineHeight: 1.0,
                     color: "#BFBEBD",
                   }}
                 >
@@ -134,6 +136,7 @@ const LandingPage = () => {
                     fontWeight: 700,
                     color: "#143D5D",
                     mt: { xs: 3, sm: 1, md: 3 },
+                    textTransform: "uppercase",
                   }}
                 >
                   Limited-Time Offer
@@ -167,7 +170,7 @@ const LandingPage = () => {
               </Box>
             </Grid>
             <Grid
-              size={{ sm: 5, md: 6 }}
+              size={{ xs: 12, sm: 6 }}
               sx={{
                 display: "flex",
                 justifyContent: { xs: "center", sm: "flex-end" },
@@ -430,8 +433,33 @@ const LandingPage = () => {
             Benefits
           </Typography>
           <Grid container spacing={2}>
-            <Grid size={{ xs: 12, md: 6, xl: 3 }}>
-              <Box sx={{ p: 3 }}>
+            <Grid size={{ xs: 12, md: 6, xl: 3 }} display="flex">
+              <Box sx={{ py: 1.5 }}>
+                <Box
+                  sx={{
+                    height: "25px",
+                    width: "25px",
+                    borderRadius: "100%",
+                    border: "1px solid #353535",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    component="p"
+                    sx={{
+                      fontSize: "16px",
+                      fontWeight: 800,
+                      lineHeight: 1.1,
+                      color: "#353535",
+                    }}
+                  >
+                    1
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ p: 2 }}>
                 <Typography
                   component="p"
                   sx={{
@@ -441,7 +469,7 @@ const LandingPage = () => {
                     color: "#353535",
                   }}
                 >
-                  1. Easy to use
+                  Easy to use
                 </Typography>
                 <Typography
                   component="p"
@@ -456,8 +484,33 @@ const LandingPage = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid size={{ xs: 12, md: 6, xl: 3 }}>
-              <Box sx={{ p: 3 }}>
+            <Grid size={{ xs: 12, md: 6, xl: 3 }} display="flex">
+              <Box sx={{ py: 1.5 }}>
+                <Box
+                  sx={{
+                    height: "25px",
+                    width: "25px",
+                    borderRadius: "100%",
+                    border: "1px solid #353535",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    component="p"
+                    sx={{
+                      fontSize: "16px",
+                      fontWeight: 800,
+                      lineHeight: 1.1,
+                      color: "#353535",
+                    }}
+                  >
+                    2
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ p: 2 }}>
                 <Typography
                   component="p"
                   sx={{
@@ -467,7 +520,7 @@ const LandingPage = () => {
                     color: "#353535",
                   }}
                 >
-                  2. Personalized Recommendations:
+                  Personalized Recommendations:
                 </Typography>
                 <Typography
                   component="p"
@@ -484,8 +537,33 @@ const LandingPage = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid size={{ xs: 12, md: 6, xl: 3 }}>
-              <Box sx={{ p: 3 }}>
+            <Grid size={{ xs: 12, md: 6, xl: 3 }} display="flex">
+              <Box sx={{ py: 1.5 }}>
+                <Box
+                  sx={{
+                    height: "25px",
+                    width: "25px",
+                    borderRadius: "100%",
+                    border: "1px solid #353535",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    component="p"
+                    sx={{
+                      fontSize: "16px",
+                      fontWeight: 800,
+                      lineHeight: 1.1,
+                      color: "#353535",
+                    }}
+                  >
+                    3
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ p: 2 }}>
                 <Typography
                   component="p"
                   sx={{
@@ -495,7 +573,7 @@ const LandingPage = () => {
                     color: "#353535",
                   }}
                 >
-                  3. Potential for significant savings:
+                  Potential for significant savings:
                 </Typography>
                 <Typography
                   component="p"
@@ -511,8 +589,33 @@ const LandingPage = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid size={{ xs: 12, md: 6, xl: 3 }}>
-              <Box sx={{ p: 3 }}>
+            <Grid size={{ xs: 12, md: 6, xl: 3 }} display="flex">
+              <Box sx={{ py: 1.5 }}>
+                <Box
+                  sx={{
+                    height: "25px",
+                    width: "25px",
+                    borderRadius: "100%",
+                    border: "1px solid #353535",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    component="p"
+                    sx={{
+                      fontSize: "16px",
+                      fontWeight: 800,
+                      lineHeight: 1.1,
+                      color: "#353535",
+                    }}
+                  >
+                    4
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ p: 2 }}>
                 <Typography
                   component="p"
                   sx={{
@@ -522,7 +625,7 @@ const LandingPage = () => {
                     color: "#353535",
                   }}
                 >
-                  4. Wide range of retailers:
+                  Wide range of retailers:
                 </Typography>
                 <Typography
                   component="p"
@@ -541,24 +644,26 @@ const LandingPage = () => {
           </Grid>
         </Box>
       </Container>
-      <Container maxWidth="sm">
-        <Box sx={{ mb: 10 }}>
-          <Typography
-            component="p"
-            sx={{
-              fontSize: { xs: "32px", lg: "40px" },
-              fontWeight: 700,
-              color: "#143D5D",
-              textAlign: "center",
-              mb: 5,
-            }}
-          >
-            Frequently Asked Questions
-          </Typography>
-          {faqData.map((item) => (
-            <FaqItem key={item.question} item={item} />
-          ))}
-        </Box>
+      <Container maxWidth="md">
+        <Typography
+          component="p"
+          sx={{
+            fontSize: { xs: "32px", lg: "40px" },
+            fontWeight: 700,
+            color: "#143D5D",
+            textAlign: "center",
+            mb: 5,
+          }}
+        >
+          Frequently Asked Questions
+        </Typography>
+        <Container maxWidth="sm">
+          <Box sx={{ mb: 10 }}>
+            {faqData.map((item) => (
+              <FaqItem key={item.question} item={item} />
+            ))}
+          </Box>
+        </Container>
       </Container>
     </>
   );
