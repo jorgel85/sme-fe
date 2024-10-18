@@ -10,7 +10,6 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import heroImage from "../../assets/images/hero.png";
 import dammyPartner from "../../assets/images/dammy_partner.png";
 import FaqItem from "../../components/FaqItem";
-// import "./styles.css";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -48,8 +47,6 @@ const LandingPage = () => {
           backgroundColor: "#F2F1E7",
           pt: { xs: "70px", xl: 0 },
           height: { xl: "100vh" },
-          borderBottomRightRadius: 15,
-          borderBottomLeftRadius: 15,
         }}
       >
         <Container maxWidth="xl" sx={{ height: "100%" }}>
@@ -199,18 +196,17 @@ const LandingPage = () => {
         </Typography>
         <Box
           sx={{
-            overflow: "hidden", // Hide overflow
-            whiteSpace: "nowrap", // Keep logos in a single line
+            overflow: "hidden",
+            whiteSpace: "nowrap",
           }}
         >
           <Box
             sx={{
               display: "inline-block",
-              animation: "scroll-left 20s linear infinite", // Animation effect
-              whiteSpace: "nowrap", // Ensure logos are in a single line
+              animation: "scroll-left 20s linear infinite",
+              whiteSpace: "nowrap",
             }}
           >
-            {/* Repeat logos to make the scrolling continuous */}
             {Array.from({ length: 10 }).map((_, index) => (
               <Box
                 key={index}
@@ -223,7 +219,6 @@ const LandingPage = () => {
                 />
               </Box>
             ))}
-            {/* Duplicate logos for seamless scrolling */}
             {Array.from({ length: 10 }).map((_, index) => (
               <Box
                 key={`duplicate-${index}`}
@@ -242,10 +237,10 @@ const LandingPage = () => {
           {`  
           @keyframes scroll-left {  
             0% {  
-              transform: translateX(0); /* Start at the beginning */  
+              transform: translateX(0);
             }  
             100% {  
-              transform: translateX(-50%); /* Move left by half the total width */  
+              transform: translateX(-50%);
             }  
           }  
         `}

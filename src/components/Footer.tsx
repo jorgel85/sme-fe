@@ -18,8 +18,6 @@ const Footer = () => {
         margin: "auto",
         backgroundColor: "#143D5D",
         py: { xs: 5, xl: 12 },
-        borderTopRightRadius: 15,
-        borderTopLeftRadius: 15,
         position: "relative",
       }}
     >
