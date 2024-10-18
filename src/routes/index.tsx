@@ -1,5 +1,7 @@
+import ForgotPassword from "../pages/authentication/ForgotPassword";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
+import ResetPassword from "../pages/authentication/ResetPassword";
 import HowItWorksPage from "../pages/HowItWorks";
 import LandingPage from "../pages/Landing";
 import PartnersPage from "../pages/Partners";
@@ -23,6 +25,8 @@ const userRoutes: Array<RouteProps> = [
 const authRoutes: Array<RouteProps> = [
   { path: "/login", component: <Login/> },
   { path: "/register", component: <Register/> },
+  { path: "/forgot-password", component: <ForgotPassword/> },
+  { path: "/reset-password", component: <ResetPassword/> },
 ];
 
 export { userRoutes, authRoutes };

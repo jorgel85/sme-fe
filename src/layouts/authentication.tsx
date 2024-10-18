@@ -7,6 +7,8 @@ import Container from "@mui/material/Container";
 import { ReactComponent as Logo } from "../assets/images/logo.svg";
 import login_right_bg from "../assets/images/login_right_bg.png";
 import register_right_bg from "../assets/images/register_right_bg.png";
+import forgot_right_bg from "../assets/images/forgot_right_bg.png";
+import reset_right_bg from "../assets/images/reset_right_bg.png";
 
 const AuthenticationLayout = (props: any) => {
   const location = useLocation();
@@ -55,7 +57,13 @@ const AuthenticationLayout = (props: any) => {
               backgroundImage:
                 location.pathname === "/login"
                   ? `url(${login_right_bg})`
-                  : `url(${register_right_bg})`,
+                  : location.pathname === "/register" 
+                  ? `url(${register_right_bg})`
+                  : location.pathname === "/forgot-password"
+                  ? `url(${forgot_right_bg})`
+                  : location.pathname === "/reset-password"
+                  ? `url(${reset_right_bg})`
+                  : `url(${login_right_bg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
