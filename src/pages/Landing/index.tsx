@@ -10,7 +10,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import heroImage from "../../assets/images/hero.png";
 import dammyPartner from "../../assets/images/dammy_partner.png";
 import FaqItem from "../../components/FaqItem";
-import "./styles.css";
+// import "./styles.css";
 
 const LandingPage = () => {
   const navigate = useNavigate();
