@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -14,6 +16,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
+import { registerUser } from "../../../store/actions";
+
 const RoundedTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     borderRadius: "20px",
@@ -21,6 +25,8 @@ const RoundedTextField = styled(TextField)({
 });
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,6 +40,8 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const { loading } = useSelector((state: any) => state.Register);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -93,11 +101,12 @@ const Register = () => {
 
   const handleRegister = () => {
     if (validate()) {
-      console.log("Full Name:", fullName);
-      console.log("Email:", email);
-      console.log("Phone Number:", phoneNumber);
-      console.log("Password:", password);
-      console.log("Confirm Password:", confirmPassword);
+      dispatch(
+        registerUser(
+          { username: fullName, email, phoneNumber, password },
+          navigate
+        )
+      );
     }
   };
 
@@ -132,7 +141,7 @@ const Register = () => {
             fontWeight: 700,
             lineHeight: 1.1,
             color: "black",
-            mb: 1
+            mb: 1,
           }}
         >
           Name
@@ -157,7 +166,7 @@ const Register = () => {
             fontWeight: 700,
             lineHeight: 1.1,
             color: "black",
-            mb: 1
+            mb: 1,
           }}
         >
           Email
@@ -314,9 +323,10 @@ const Register = () => {
           fontSize: "16px",
           textTransform: "none",
         }}
+        disabled={loading}
         onClick={handleRegister}
       >
-        Register
+        {loading ? <CircularProgress size={28} color="inherit" /> : "Register"}
       </Button>
       <Typography
         component="span"
