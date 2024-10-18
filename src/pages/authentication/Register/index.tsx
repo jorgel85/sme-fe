@@ -132,6 +132,7 @@ const Register = () => {
             fontWeight: 700,
             lineHeight: 1.1,
             color: "black",
+            mb: 1
           }}
         >
           Name
@@ -156,6 +157,7 @@ const Register = () => {
             fontWeight: 700,
             lineHeight: 1.1,
             color: "black",
+            mb: 1
           }}
         >
           Email
