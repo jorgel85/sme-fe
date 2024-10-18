@@ -174,10 +174,10 @@ const LandingPage = () => {
               sx={{
                 display: "flex",
                 justifyContent: { xs: "center", sm: "flex-end" },
-                alignItems: { xs: "center" },
+                alignItems: { xs: "center", lg: "flex-end" },
               }}
             >
-              <Box sx={{ width: { lg: "90%" }, pt: { xl: 7 } }}>
+              <Box sx={{ width: { lg: "95%" }, pt: { xl: 7 } }}>
                 <img alt="Hero" src={heroImage} width="100%" />
               </Box>
             </Grid>
@@ -440,7 +440,7 @@ const LandingPage = () => {
                     height: "25px",
                     width: "25px",
                     borderRadius: "100%",
-                    border: "1px solid #353535",
+                    border: "1px solid #BFBEBD",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -450,7 +450,7 @@ const LandingPage = () => {
                     component="p"
                     sx={{
                       fontSize: "16px",
-                      fontWeight: 800,
+                      fontWeight: 500,
                       lineHeight: 1.1,
                       color: "#353535",
                     }}
@@ -464,7 +464,7 @@ const LandingPage = () => {
                   component="p"
                   sx={{
                     fontSize: "16px",
-                    fontWeight: 800,
+                    fontWeight: 500,
                     lineHeight: 1.1,
                     color: "#353535",
                   }}
@@ -491,7 +491,7 @@ const LandingPage = () => {
                     height: "25px",
                     width: "25px",
                     borderRadius: "100%",
-                    border: "1px solid #353535",
+                    border: "1px solid #BFBEBD",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -501,7 +501,7 @@ const LandingPage = () => {
                     component="p"
                     sx={{
                       fontSize: "16px",
-                      fontWeight: 800,
+                      fontWeight: 500,
                       lineHeight: 1.1,
                       color: "#353535",
                     }}
@@ -515,7 +515,7 @@ const LandingPage = () => {
                   component="p"
                   sx={{
                     fontSize: "16px",
-                    fontWeight: 800,
+                    fontWeight: 500,
                     lineHeight: 1.1,
                     color: "#353535",
                   }}
@@ -544,7 +544,7 @@ const LandingPage = () => {
                     height: "25px",
                     width: "25px",
                     borderRadius: "100%",
-                    border: "1px solid #353535",
+                    border: "1px solid #BFBEBD",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -554,7 +554,7 @@ const LandingPage = () => {
                     component="p"
                     sx={{
                       fontSize: "16px",
-                      fontWeight: 800,
+                      fontWeight: 500,
                       lineHeight: 1.1,
                       color: "#353535",
                     }}
@@ -568,7 +568,7 @@ const LandingPage = () => {
                   component="p"
                   sx={{
                     fontSize: "16px",
-                    fontWeight: 800,
+                    fontWeight: 500,
                     lineHeight: 1.1,
                     color: "#353535",
                   }}
@@ -596,7 +596,7 @@ const LandingPage = () => {
                     height: "25px",
                     width: "25px",
                     borderRadius: "100%",
-                    border: "1px solid #353535",
+                    border: "1px solid #BFBEBD",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -606,7 +606,7 @@ const LandingPage = () => {
                     component="p"
                     sx={{
                       fontSize: "16px",
-                      fontWeight: 800,
+                      fontWeight: 500,
                       lineHeight: 1.1,
                       color: "#353535",
                     }}
@@ -620,7 +620,7 @@ const LandingPage = () => {
                   component="p"
                   sx={{
                     fontSize: "16px",
-                    fontWeight: 800,
+                    fontWeight: 500,
                     lineHeight: 1.1,
                     color: "#353535",
                   }}
