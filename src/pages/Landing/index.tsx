@@ -8,7 +8,13 @@ import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import heroImage from "../../assets/images/hero.png";
-import dammyPartner from "../../assets/images/dammy_partner.png";
+import brandAirbnb from "../../assets/images/brand_airbnb.png";
+import brandAdidas from "../../assets/images/brand_adidas.png";
+import brandLenovo from "../../assets/images/brand_lenovo.png";
+import brandNike from "../../assets/images/brand_nike.png";
+import brandSamsung from "../../assets/images/brand_samsung.png";
+import brandSony from "../../assets/images/brand_sony.png";
+import brandWilson from "../../assets/images/brand_wilson.png";
 import FaqItem from "../../components/FaqItem";
 
 const LandingPage = () => {
@@ -36,6 +42,16 @@ const LandingPage = () => {
       answer:
         "We take the security of your personal information very seriously. We use industry-standard security measures to protect your data. Please refer to our privacy policy for more details.",
     },
+  ];
+
+  const brandLogos = [
+    brandAirbnb,
+    brandAdidas,
+    brandLenovo,
+    brandNike,
+    brandSamsung,
+    brandSony,
+    brandWilson,
   ];
 
   return (
@@ -178,7 +194,12 @@ const LandingPage = () => {
               }}
             >
               <Box sx={{ width: { lg: "90%", xl: "85%" } }}>
-                <img alt="Hero" src={heroImage} width="100%" style={{ maxHeight: "100vh" }}/>
+                <img
+                  alt="Hero"
+                  src={heroImage}
+                  width="100%"
+                  style={{ maxHeight: "100vh" }}
+                />
               </Box>
             </Grid>
           </Grid>
@@ -210,28 +231,32 @@ const LandingPage = () => {
               whiteSpace: "nowrap",
             }}
           >
-            {Array.from({ length: 10 }).map((_, index) => (
+            {brandLogos.map((_, index) => (
               <Box
                 key={index}
-                sx={{ display: "inline-block", margin: "0 15px" }}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px"} }}
               >
-                <img
-                  alt="Partner"
-                  src={dammyPartner}
-                  style={{ height: "50px" }}
-                />
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    alt="Partner"
+                    src={brandLogos[index]}
+                    style={{ height: "30px" }}
+                  />
+                </Box>
               </Box>
             ))}
-            {Array.from({ length: 10 }).map((_, index) => (
+            {brandLogos.map((_, index) => (
               <Box
                 key={`duplicate-${index}`}
-                sx={{ display: "inline-block", margin: "0 15px" }}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px"} }}
               >
-                <img
-                  alt="Partner"
-                  src={dammyPartner}
-                  style={{ height: "50px" }}
-                />
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    alt="Partner"
+                    src={brandLogos[index]}
+                    style={{ height: "30px" }}
+                  />
+                </Box>
               </Box>
             ))}
           </Box>
