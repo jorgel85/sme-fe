@@ -53,9 +53,9 @@ const LandingPage = () => {
           <Grid container height="100%">
             <Grid
               size={{ xs: 12, sm: 6 }}
-              sx={{ display: "flex", alignItems: { xs: "center" } }}
+              sx={{ display: "flex", alignItems: "center" }}
             >
-              <Box sx={{ pt: { xl: 10 } }}>
+              <Box>
                 <Typography
                   component="span"
                   sx={{
@@ -174,11 +174,11 @@ const LandingPage = () => {
               sx={{
                 display: "flex",
                 justifyContent: { xs: "center", sm: "flex-end" },
-                alignItems: { xs: "center", lg: "flex-end" },
+                alignItems: "center",
               }}
             >
-              <Box sx={{ width: { lg: "100%" }, pt: { xl: 0 } }}>
-                <img alt="Hero" src={heroImage} width="100%" />
+              <Box sx={{ width: { lg: "90%" } }}>
+                <img alt="Hero" src={heroImage} width="100%" style={{ maxHeight: "100vh" }}/>
               </Box>
             </Grid>
           </Grid>
