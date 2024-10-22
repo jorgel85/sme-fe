@@ -56,7 +56,7 @@ const Login = () => {
       <Typography
         component="p"
         sx={{
-          fontSize: "35px",
+          fontSize: "30px",
           fontWeight: 700,
           lineHeight: 1.1,
           color: "#011C39",
