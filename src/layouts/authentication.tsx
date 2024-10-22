@@ -9,6 +9,7 @@ import login_right_bg from "../assets/images/login_right_bg.png";
 import register_right_bg from "../assets/images/register_right_bg.png";
 import forgot_right_bg from "../assets/images/forgot_right_bg.png";
 import reset_right_bg from "../assets/images/reset_right_bg.png";
+import verify_right_bg from "../assets/images/verify_right_bg.png";
 
 const AuthenticationLayout = (props: any) => {
   const location = useLocation();
@@ -31,7 +32,7 @@ const AuthenticationLayout = (props: any) => {
               position: "relative",
               justifyContent: "center",
               alignItems: "center",
-              py: 7
+              pt: 10
             }}
           >
             <Box
@@ -48,7 +49,9 @@ const AuthenticationLayout = (props: any) => {
                 <Logo style={{ color: "#143D5D" }} />
               </Link>
             </Box>
-            {props.children}
+            <Box sx={{ px: { lg: 7, xl: 15} }}>
+              {props.children}
+            </Box>
           </Container>
         </Grid>
         <Grid size={{ xs: 0, md: 6 }}>
@@ -64,6 +67,8 @@ const AuthenticationLayout = (props: any) => {
                   ? `url(${forgot_right_bg})`
                   : location.pathname === "/reset-password"
                   ? `url(${reset_right_bg})`
+                  : location.pathname === "/verify-email"
+                  ? `url(${verify_right_bg})`
                   : `url(${login_right_bg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",

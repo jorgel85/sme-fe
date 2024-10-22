@@ -2,6 +2,7 @@ import ForgotPassword from "../pages/authentication/ForgotPassword";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
 import ResetPassword from "../pages/authentication/ResetPassword";
+import VerifyEmail from "../pages/authentication/VerifyEmail";
 import HowItWorksPage from "../pages/HowItWorks";
 import LandingPage from "../pages/Landing";
 import PartnersPage from "../pages/Partners";
@@ -27,6 +28,7 @@ const authRoutes: Array<RouteProps> = [
   { path: "/register", component: <Register/> },
   { path: "/forgot-password", component: <ForgotPassword/> },
   { path: "/reset-password", component: <ResetPassword/> },
+  { path: "/verify-email", component: <VerifyEmail/> },
 ];
 
 export { userRoutes, authRoutes };
