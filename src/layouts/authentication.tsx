@@ -32,7 +32,8 @@ const AuthenticationLayout = (props: any) => {
               position: "relative",
               justifyContent: "center",
               alignItems: "center",
-              pt: 10
+              pt: 10,
+              pb: 3
             }}
           >
             <Box
