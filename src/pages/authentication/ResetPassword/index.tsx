@@ -71,7 +71,7 @@ const ResetPassword = () => {
       <Typography
         component="p"
         sx={{
-          fontSize: "40px",
+          fontSize: "35px",
           fontWeight: 700,
           lineHeight: 1.1,
           color: "#011C39",
