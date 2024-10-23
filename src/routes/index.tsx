@@ -27,7 +27,7 @@ const authRoutes: Array<RouteProps> = [
   { path: "/login", component: <Login/> },
   { path: "/register", component: <Register/> },
   { path: "/forgot-password", component: <ForgotPassword/> },
-  { path: "/reset-password", component: <ResetPassword/> },
+  { path: "/reset-password/:token", component: <ResetPassword/> },
   { path: "/verify-email", component: <VerifyEmail/> },
 ];
 

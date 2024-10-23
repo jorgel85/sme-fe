@@ -8,8 +8,9 @@ import {postRegister} from '../../../helpers/api_helper';
 function* registerUser({payload: {registerInfo, navigation}}: any) {
   try {
     const {accessToken, user} = yield call(postRegister, registerInfo);
-    console.log(accessToken, user);
-    yield put(registerUserSuccess(user));
+    localStorage.setItem("authUser", JSON.stringify({accessToken, user}));
+    yield put(registerUserSuccess());
+    navigation("/");
   } catch (error) {
     console.log(error);
     yield put(registerUserFailed());

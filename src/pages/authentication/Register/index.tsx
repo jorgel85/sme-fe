@@ -33,7 +33,7 @@ const Register = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState({
+  const [validationErrors, setValidationErrors] = useState({
     fullName: "",
     email: "",
     phoneNumber: "",
@@ -41,7 +41,7 @@ const Register = () => {
     confirmPassword: "",
   });
 
-  const { loading } = useSelector((state: any) => state.Register);
+  const { loading, error } = useSelector((state: any) => state.Register);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -95,7 +95,7 @@ const Register = () => {
       valid = false;
     }
 
-    setErrors(newErrors);
+    setValidationErrors(newErrors);
     return valid;
   };
 
@@ -154,8 +154,8 @@ const Register = () => {
           margin="none"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          error={!!errors.fullName}
-          helperText={errors.fullName}
+          error={!!validationErrors.fullName}
+          helperText={validationErrors.fullName}
         />
       </Box>
       <Box sx={{ my: 1.5 }}>
@@ -179,8 +179,8 @@ const Register = () => {
           margin="none"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          error={!!errors.email}
-          helperText={errors.email}
+          error={!!validationErrors.email}
+          helperText={validationErrors.email}
         />
       </Box>
       <Box sx={{ my: 1.5 }}>
@@ -204,7 +204,7 @@ const Register = () => {
           inputStyle={{
             width: "100%",
             borderRadius: "20px",
-            borderColor: errors.phoneNumber ? "red" : "#BFBEBD",
+            borderColor: validationErrors.phoneNumber ? "red" : "#BFBEBD",
             padding: "20px",
             paddingLeft: "50px",
             backgroundColor: "#F9F8EF",
@@ -214,9 +214,9 @@ const Register = () => {
             borderRadius: "20px",
           }}
         />
-        {errors.phoneNumber && (
+        {validationErrors.phoneNumber && (
           <Typography color="error" sx={{ fontSize: "12px", px: 2, mt: "5px" }}>
-            {errors.phoneNumber}
+            {validationErrors.phoneNumber}
           </Typography>
         )}
       </Box>
@@ -254,14 +254,14 @@ const Register = () => {
             }
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            error={!!errors.password}
+            error={!!validationErrors.password}
           />
-          {errors.password && (
+          {validationErrors.password && (
             <Typography
               color="error"
               sx={{ fontSize: "12px", px: 2, mt: "5px" }}
             >
-              {errors.password}
+              {validationErrors.password}
             </Typography>
           )}
         </FormControl>
@@ -300,18 +300,24 @@ const Register = () => {
             }
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            error={!!errors.confirmPassword}
+            error={!!validationErrors.confirmPassword}
           />
-          {errors.confirmPassword && (
+          {validationErrors.confirmPassword && (
             <Typography
               color="error"
               sx={{ fontSize: "12px", px: 2, mt: "5px" }}
             >
-              {errors.confirmPassword}
+              {validationErrors.confirmPassword}
             </Typography>
           )}
         </FormControl>
       </Box>
+      { error && (
+        <Typography color="error" sx={{ fontSize: "16px", mt: "5px" }}>
+        This email address / phone number you entered is already registered. Please use a
+        different email address or log in to your existing account.
+      </Typography>
+      )}
       <Button
         variant="contained"
         disableElevation

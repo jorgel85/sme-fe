@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import { styled } from "@mui/material/styles";
+import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
+
+import { loginUser } from "../../../store/actions";
 
 const RoundedTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -13,42 +17,45 @@ const RoundedTextField = styled(TextField)({
 });
 
 const Login = () => {
-  const [email, setEmail] = useState("");  
-  const [password, setPassword] = useState("");  
-  const [errors, setErrors] = useState({  
-    email: "",  
-    password: "",  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
   });
 
-  const validate = () => {  
-    let valid = true;  
-    const newErrors = {  
-      email: "",  
-      password: "",  
-    };  
+  const { loading, error } = useSelector((state: any) => state.Login);
 
-    if (!email) {  
-      newErrors.email = "Email is required.";  
-      valid = false;  
-    } else if (!/\S+@\S+\.\S+/.test(email)) {  
-      newErrors.email = "Email address is invalid.";  
-      valid = false;  
-    }  
-    
-    if (!password) {  
-      newErrors.password = "Password is required.";  
-      valid = false;  
-    }  
+  const validate = () => {
+    let valid = true;
+    const newErrors = {
+      email: "",
+      password: "",
+    };
 
-    setErrors(newErrors);  
-    return valid;  
-  };  
+    if (!email) {
+      newErrors.email = "Email is required.";
+      valid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email address is invalid.";
+      valid = false;
+    }
 
-  const handleLogin = () => {  
-    if (validate()) {  
-      console.log("Email:", email);  
-      console.log("Password:", password);
-    }  
+    if (!password) {
+      newErrors.password = "Password is required.";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleLogin = () => {
+    if (validate()) {
+      dispatch(loginUser({ email, password }, navigate));
+    }
   };
 
   return (
@@ -92,9 +99,9 @@ const Login = () => {
           id="email"
           size="small"
           margin="dense"
-          value={email}  
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
-          error={!!errors.email}  
+          error={!!errors.email}
           helperText={errors.email}
         />
       </Box>
@@ -118,9 +125,9 @@ const Login = () => {
           size="small"
           margin="dense"
           autoComplete="current-password"
-          value={password}  
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
-          error={!!errors.password}  
+          error={!!errors.password}
           helperText={errors.password}
         />
       </Box>
@@ -138,6 +145,12 @@ const Login = () => {
           Forgot password
         </Typography>
       </Link>
+      {error.login && (
+        <Typography color="error" sx={{ fontSize: "16px", mb: 2 }}>
+          The email or password you entered is incorrect. Please check your
+          credentials and try again.
+        </Typography>
+      )}
       <Button
         variant="contained"
         disableElevation
@@ -150,8 +163,9 @@ const Login = () => {
           textTransform: "none",
         }}
         onClick={handleLogin}
+        disabled={loading}
       >
-        Login
+        {loading ? <CircularProgress size={28} color="inherit" /> : "Login"}
       </Button>
       <Typography
         component="span"

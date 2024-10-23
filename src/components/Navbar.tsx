@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,9 +19,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import CheckIcon from "@mui/icons-material/Check";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+
 import { ReactComponent as Logo } from "../assets/images/logo.svg";
+import { logoutUser } from "../store/actions";
 
 function Navbar() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -45,8 +49,6 @@ function Navbar() {
     { title: "English", value: "En" },
     { title: "Turkish", value: "Tu" },
   ];
-
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -77,9 +79,14 @@ function Navbar() {
     setAnchorElLang(null);
   };
 
+  const handleLogout = () => {
+    dispatch(logoutUser(navigate));
+    setAnchorElUser(null);
+  };
+
   const checkUserData = () => {
-    const userData = localStorage.getItem("userData");
-    setIsLoggedIn(!!userData);
+    const authUser = localStorage.getItem("authUser");
+    setIsLoggedIn(!!authUser);
   };
 
   const handleScroll = () => {
@@ -265,13 +272,23 @@ function Navbar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography sx={{ textAlign: "center" }}>
-                      {setting}
-                    </Typography>
-                  </MenuItem>
-                ))}
+                <MenuItem
+                  disabled
+                  onClick={() => {
+                    navigate("/account");
+                    handleCloseUserMenu();
+                  }}
+                >
+                  <Typography sx={{ textAlign: "center" }}>Account</Typography>
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    navigate("/logout");
+                    handleLogout();
+                  }}
+                >
+                  <Typography sx={{ textAlign: "center" }}>Logout</Typography>
+                </MenuItem>
               </Menu>
             </Box>
           ) : (

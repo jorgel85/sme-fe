@@ -3,7 +3,6 @@ import {RegisterTypes} from './actionTypes';
 const initialState = {
   error: false,
   loading: false,
-  user: null,
 };
 
 const register = (state = initialState, action: any) => {
@@ -12,21 +11,18 @@ const register = (state = initialState, action: any) => {
       state = {
         ...state,
         loading: true,
-        error: false,
       };
       break;
     case RegisterTypes.REGISTER_USER_SUCCESS:
       state = {
         ...state,
         loading: false,
-        user: action.payload,
         error: false,
       };
       break;
     case RegisterTypes.REGISTER_USER_FAILED:
       state = {
         ...state,
-        user: null,
         loading: false,
         error: true,
       };

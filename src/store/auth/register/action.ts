@@ -7,10 +7,9 @@ export const registerUser = (registerInfo: any, navigation: any) => {
   };
 };
 
-export const registerUserSuccess = (user: any) => {
+export const registerUserSuccess = () => {
   return {
     type: RegisterTypes.REGISTER_USER_SUCCESS,
-    payload: user,
   };
 };
 
