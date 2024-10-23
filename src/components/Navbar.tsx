@@ -252,8 +252,12 @@ function Navbar() {
           {isLoggedIn ? (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="" />
+                <IconButton
+                  onClick={handleOpenUserMenu}
+                  sx={{ p: 0 }}
+                  size="small"
+                >
+                  <Avatar alt="Remy Sharp" src="" sx={{ width: 28, height: 28 }}/>
                 </IconButton>
               </Tooltip>
               <Menu
@@ -281,9 +285,7 @@ function Navbar() {
                 >
                   <Typography sx={{ textAlign: "center" }}>Account</Typography>
                 </MenuItem>
-                <MenuItem
-                  onClick={handleLogout}
-                >
+                <MenuItem onClick={handleLogout}>
                   <Typography sx={{ textAlign: "center" }}>Logout</Typography>
                 </MenuItem>
               </Menu>
