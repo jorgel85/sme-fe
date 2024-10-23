@@ -80,7 +80,7 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    dispatch(logoutUser(navigate));
+    dispatch(logoutUser());
     setAnchorElUser(null);
   };
 

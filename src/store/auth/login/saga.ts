@@ -62,12 +62,12 @@ function* resetPassword({ payload: { resetPasswordInfo } }: any) {
   }
 }
 
-function* logoutUser({ payload: { navigation } }: any) {
+function* logoutUser() {
   try {
     yield call(postLogout, {});
     localStorage.removeItem("authUser");
     yield put(logoutUserSuccess());
-    navigation("/");
+    window.location.href = "/";
   } catch (error: any) {
     yield put(logoutUserFailed(error.response.data.message));
   }

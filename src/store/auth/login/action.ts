@@ -20,16 +20,15 @@ export const loginFailed = (error: any) => {
   };
 };
 
-export const logoutUser = (navigation: any) => {
+export const logoutUser = () => {
   return {
     type: LoginTypes.LOGOUT_USER,
-    payload: { navigation },
   };
 };
 
 export const logoutUserSuccess = () => {
   return {
-    type: LoginTypes.LOGOUT_USER_SUCCESS
+    type: LoginTypes.LOGOUT_USER_SUCCESS,
   };
 };
 
@@ -49,7 +48,7 @@ export const sendCode = (email: string, navigation: any) => {
 
 export const sendCodeSuccess = () => {
   return {
-    type: LoginTypes.SEND_CODE_SUCCESS
+    type: LoginTypes.SEND_CODE_SUCCESS,
   };
 };
 
@@ -109,7 +108,7 @@ export const verifyEmail = (verifyInfo: any, navigation: any) => {
 
 export const verifyEmailSuccess = () => {
   return {
-    type: LoginTypes.VERIFY_EMAIL_SUCCESS
+    type: LoginTypes.VERIFY_EMAIL_SUCCESS,
   };
 };
 
