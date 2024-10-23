@@ -282,10 +282,7 @@ function Navbar() {
                   <Typography sx={{ textAlign: "center" }}>Account</Typography>
                 </MenuItem>
                 <MenuItem
-                  onClick={() => {
-                    navigate("/logout");
-                    handleLogout();
-                  }}
+                  onClick={handleLogout}
                 >
                   <Typography sx={{ textAlign: "center" }}>Logout</Typography>
                 </MenuItem>
