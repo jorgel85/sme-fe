@@ -3,10 +3,31 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 
-import dammyPartner from "../../assets/images/dammy_partner.png";
+import brandAirbnb from "../../assets/images/brand_airbnb.png";
+import brandAdidas from "../../assets/images/brand_adidas.png";
+import brandLenovo from "../../assets/images/brand_lenovo.png";
+import brandNike from "../../assets/images/brand_nike.png";
+import brandSamsung from "../../assets/images/brand_samsung.png";
+import brandSony from "../../assets/images/brand_sony.png";
+import brandWilson from "../../assets/images/brand_wilson.png";
 import Button from "@mui/material/Button";
 
 const PartnersPage = () => {
+  const brandLogos = [
+    brandAirbnb,
+    brandAdidas,
+    brandLenovo,
+    brandNike,
+    brandSamsung,
+    brandSony,
+    brandNike,
+    brandWilson,
+    brandAdidas,
+    brandLenovo,
+    brandSamsung,
+    brandSony,
+  ];
+
   return (
     <Box
       sx={{
@@ -23,6 +44,7 @@ const PartnersPage = () => {
               fontSize: "40px",
               fontWeight: 700,
               color: "#143D5D",
+              textAlign: "center",
             }}
           >
             Partners
@@ -33,6 +55,7 @@ const PartnersPage = () => {
               fontSize: "20px",
               fontWeight: 400,
               color: "#353535",
+              textAlign: "center",
             }}
           >
             Explore 500+ brands across 50 categories, handpicked to match your
@@ -41,34 +64,28 @@ const PartnersPage = () => {
         </Box>
         <Box sx={{ mb: 10 }}>
           <Grid container spacing={3}>
-            {Array(12)
-              .fill(true)
-              .map((_, idx) => (
-                <Grid key={idx} size={{ xs: 6, sm: 4, md: 3, lg: 2 }}>
-                  <Box
-                    sx={{
-                      px: 0.5,
-                      py: 5,
-                      mb: 1,
-                      backgroundColor: "#F2F1E7",
-                      borderRadius: 5,
-                      textAlign: "center",
-                    }}
-                  >
-                    <img alt="Partner" src={dammyPartner} width="90%" />
-                  </Box>
-                  <Typography
-                    component="p"
-                    sx={{
-                      fontSize: "16px",
-                      fontWeight: 700,
-                      color: "#353535",
-                    }}
-                  >
-                    Alt+Shift
-                  </Typography>
-                </Grid>
-              ))}
+            {brandLogos.map((_, index) => (
+              <Grid
+                key={index}
+                size={{ xs: 6, sm: 4, md: 3, lg: 2 }}
+                display="flex"
+                justifyContent="center"
+                sx={{ my: 5 }}
+              >
+                <Box
+                  sx={{
+                    display: "inline-block",
+                    height: { xs: "15px", md: "25px" },
+                  }}
+                >
+                  <img
+                    alt="Partner"
+                    src={brandLogos[index]}
+                    style={{ height: "100%", color: "black" }}
+                  />
+                </Box>
+              </Grid>
+            ))}
           </Grid>
         </Box>
         <Box sx={{ mb: 3 }}>
@@ -80,22 +97,44 @@ const PartnersPage = () => {
               color: "#143D5D",
               lineHeight: 1.1,
               mb: 2,
+              textAlign: "center",
             }}
           >
             Want to Partner with us?
           </Typography>
-          <Button
-            variant="contained"
-            disableElevation
+          <Typography
+            component="p"
             sx={{
-              backgroundColor: "#143D5D",
-              borderRadius: 15,
-              fontSize: "16px",
-              textTransform: "none",
+              fontSize: "20px",
+              fontWeight: 400,
+              color: "#353535",
+              textAlign: "center",
             }}
           >
-            Click here
-          </Button>
+            Let's build something great together.
+          </Typography>
+          <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
+            <Button
+              variant="contained"
+              disableElevation
+              sx={{
+                mt: { xs: 3, sm: 1, md: 3 },
+                borderRadius: 10,
+                padding: "8px 25px",
+                background: `linear-gradient(90deg, #FFB74D 30%, #C44D4F 90%)`,
+                color: "white",
+                fontSize: "16px",
+                textTransform: "none",
+                transition: "background 0.9s ease",
+                "&:hover": {
+                  background: `linear-gradient(-90deg, #FFB74D 30%, #C44D4F 90%)`,
+                },
+              }}
+              onClick={() => {}}
+            >
+              Join Us
+            </Button>
+          </Box>
         </Box>
       </Container>
     </Box>
