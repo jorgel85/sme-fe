@@ -71,7 +71,7 @@ const LandingPage = () => {
               size={{ xs: 12, sm: 6 }}
               sx={{ display: "flex", alignItems: "center" }}
             >
-              <Box>
+              <Box sx={{ mt: { xl: "70px" }, mb: 2 }}>
                 <Typography
                   component="span"
                   sx={{
@@ -168,7 +168,6 @@ const LandingPage = () => {
                   endIcon={<ArrowForwardIcon />}
                   sx={{
                     mt: { xs: 3, sm: 1, md: 3 },
-                    mb: 3,
                     borderRadius: 10,
                     padding: "6px 20px",
                     background: `linear-gradient(90deg, #FFB74D 30%, #C44D4F 90%)`,
