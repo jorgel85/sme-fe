@@ -196,10 +196,10 @@ const LandingPage = () => {
             >
               <Box
                 sx={{
-                  width: "100%",
-                  height: {xs: "400px", sm: "100%"},
+                  width: { xs: "100%", xl: "85%" },
+                  height: { xs: "450px", sm: "100%" },
                   backgroundImage: `url(${heroImage})`,
-                  backgroundSize: {xs: "cover", sm: "contain", xl: "cover"},
+                  backgroundSize: { xs: "cover", sm: "contain", xl: "cover" },
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                 }}
