@@ -190,17 +190,19 @@ const LandingPage = () => {
               sx={{
                 display: "flex",
                 justifyContent: { xs: "center", sm: "flex-end" },
-                alignItems: "center",
+                pt: { xl: "70px" },
               }}
             >
-              <Box sx={{ width: { lg: "90%", xl: "85%" } }}>
-                <img
-                  alt="Hero"
-                  src={heroImage}
-                  width="100%"
-                  style={{ maxHeight: "100vh" }}
-                />
-              </Box>
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundImage: `url(${heroImage})`,
+                  backgroundSize: { xs: "contain", xl: "cover" },
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></Box>
             </Grid>
           </Grid>
         </Container>
@@ -234,7 +236,7 @@ const LandingPage = () => {
             {brandLogos.map((_, index) => (
               <Box
                 key={index}
-                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px"} }}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px" } }}
               >
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <img
@@ -248,7 +250,7 @@ const LandingPage = () => {
             {brandLogos.map((_, index) => (
               <Box
                 key={`duplicate-${index}`}
-                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px"} }}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px" } }}
               >
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <img
