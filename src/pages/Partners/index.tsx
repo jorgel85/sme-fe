@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 
 import brandAirbnb from "../../assets/images/brand_airbnb.png";
@@ -20,12 +19,7 @@ const PartnersPage = () => {
     brandNike,
     brandSamsung,
     brandSony,
-    brandNike,
-    brandWilson,
-    brandAdidas,
-    brandLenovo,
-    brandSamsung,
-    brandSony,
+    brandWilson
   ];
 
   return (
@@ -62,32 +56,107 @@ const PartnersPage = () => {
             style and lifestyle.
           </Typography>
         </Box>
-        <Box sx={{ mb: 10 }}>
-          <Grid container spacing={3}>
+        <Box
+          sx={{
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            mt: 10,
+            mb: 5,
+          }}
+        >
+          <Box
+            sx={{
+              display: "inline-block",
+              animation: "scroll-left 20s linear infinite",
+              whiteSpace: "nowrap",
+            }}
+          >
             {brandLogos.map((_, index) => (
-              <Grid
+              <Box
                 key={index}
-                size={{ xs: 6, sm: 4, md: 3, lg: 2 }}
-                display="flex"
-                justifyContent="center"
-                sx={{ my: 5 }}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px" } }}
               >
-                <Box
-                  sx={{
-                    display: "inline-block",
-                    height: { xs: "15px", md: "25px" },
-                  }}
-                >
+                <Box sx={{ display: "flex", alignItems: "center" }}>
                   <img
                     alt="Partner"
                     src={brandLogos[index]}
-                    style={{ height: "100%", color: "black" }}
+                    style={{ height: "30px" }}
                   />
                 </Box>
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+            {brandLogos.map((_, index) => (
+              <Box
+                key={`duplicate-${index}`}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px" } }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    alt="Partner"
+                    src={brandLogos[index]}
+                    style={{ height: "30px" }}
+                  />
+                </Box>
+              </Box>
+            ))}
+          </Box>
         </Box>
+        <Box
+          sx={{
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            mb: 10,
+          }}
+        >
+          <Box
+            sx={{
+              display: "inline-block",
+              animation: "scroll-left 20s linear infinite",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {brandLogos.map((_, index) => (
+              <Box
+                key={index}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px" } }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    alt="Partner"
+                    src={brandLogos[index]}
+                    style={{ height: "30px" }}
+                  />
+                </Box>
+              </Box>
+            ))}
+            {brandLogos.map((_, index) => (
+              <Box
+                key={`duplicate-${index}`}
+                sx={{ display: "inline-block", mx: { xs: "30px", sm: "50px" } }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    alt="Partner"
+                    src={brandLogos[index]}
+                    style={{ height: "30px" }}
+                  />
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+        <style>
+          {`  
+          @keyframes scroll-left {  
+            0% {  
+              transform: translateX(0);
+            }  
+            100% {  
+              transform: translateX(-50%);
+            }  
+          }  
+        `}
+        </style>
         <Box sx={{ mb: 3 }}>
           <Typography
             component="p"
