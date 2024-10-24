@@ -168,6 +168,7 @@ const LandingPage = () => {
                   endIcon={<ArrowForwardIcon />}
                   sx={{
                     mt: { xs: 3, sm: 1, md: 3 },
+                    mb: 3,
                     borderRadius: 10,
                     padding: "6px 20px",
                     background: `linear-gradient(90deg, #FFB74D 30%, #C44D4F 90%)`,
@@ -196,9 +197,9 @@ const LandingPage = () => {
               <Box
                 sx={{
                   width: "100%",
-                  height: "100%",
+                  height: {xs: "400px", sm: "100%"},
                   backgroundImage: `url(${heroImage})`,
-                  backgroundSize: { xs: "contain", xl: "cover" },
+                  backgroundSize: {xs: "cover", sm: "contain", xl: "cover"},
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                 }}
