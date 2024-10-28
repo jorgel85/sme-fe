@@ -142,7 +142,6 @@ const ShopPage = () => {
                     background: `linear-gradient(-90deg, #FFB74D 30%, #C44D4F 90%)`,
                   },
                 }}
-                onClick={() => {}}
               >
                 Generate
               </Button>
