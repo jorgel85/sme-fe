@@ -1,4 +1,5 @@
 import ForgotPassword from "../pages/authentication/ForgotPassword";
+import JoinUs from "../pages/authentication/JoinUs";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
 import ResetPassword from "../pages/authentication/ResetPassword";
@@ -29,6 +30,7 @@ const authRoutes: Array<RouteProps> = [
   { path: "/forgot-password", component: <ForgotPassword/> },
   { path: "/reset-password/:token", component: <ResetPassword/> },
   { path: "/verify-email", component: <VerifyEmail/> },
+  { path: "/join-us", component: <JoinUs/> },
 ];
 
 export { userRoutes, authRoutes };

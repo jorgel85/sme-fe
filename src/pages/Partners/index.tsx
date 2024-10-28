@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import brandAirbnb from "../../assets/images/brand_airbnb.png";
 import brandAdidas from "../../assets/images/brand_adidas.png";
@@ -12,6 +14,8 @@ import brandWilson from "../../assets/images/brand_wilson.png";
 import Button from "@mui/material/Button";
 
 const PartnersPage = () => {
+  const navigate = useNavigate();
+
   const brandLogos = [
     brandAirbnb,
     brandAdidas,
@@ -186,6 +190,7 @@ const PartnersPage = () => {
             <Button
               variant="contained"
               disableElevation
+              endIcon={<ArrowForwardIcon />}
               sx={{
                 mt: { xs: 3, sm: 1, md: 3 },
                 borderRadius: 10,
@@ -199,9 +204,9 @@ const PartnersPage = () => {
                   background: `linear-gradient(-90deg, #FFB74D 30%, #C44D4F 90%)`,
                 },
               }}
-              onClick={() => {}}
+              onClick={() => navigate("/join-us")}
             >
-              Join Us
+              Let's work together
             </Button>
           </Box>
         </Box>

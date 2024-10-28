@@ -143,7 +143,7 @@ const LandingPage = () => {
                     color: "#353535",
                   }}
                 >
-                  Up to a value of $500 across 500+ brands, handpicked to match
+                  Up to a value of $500 across 500+ brands, handpicked AI-driven solutions to match
                   your specific needs.
                 </Typography>
                 <Typography
