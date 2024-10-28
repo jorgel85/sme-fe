@@ -34,7 +34,9 @@ const ShopPage = () => {
             >
               Recents
             </Typography>
-            <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+            <Box
+              sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+            >
               <HistoryIcon />
               <Typography
                 component="p"
